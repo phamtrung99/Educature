@@ -1,0 +1,449 @@
+{{>header}}
+<script>
+    document.getElementById('sidebarToggle').style.display = "none";
+</script>
+<!-- Start Banner Area -->
+<section class="banner-area relative">
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    {{Course.course_title}}
+                </h1>
+                <div class="link-nav">
+                    <span class="box">
+                        <a href="#">Home </a>
+                        <i class="lnr lnr-arrow-right"></i>
+                        <a href="#">Course</a>
+                        <i class="lnr lnr-arrow-right"></i>
+                        <a href="#">{{Course.course_title}}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rocket-img">
+        <img src="../../public/img/rocket.png" alt="">
+    </div>
+</section>
+<!-- End Banner Area -->
+
+<!-- Start post-content Area -->
+<section class="post-content-area single-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post row">
+                    <div class="col-lg-12">
+                        <div class="feature-img">
+                            <img class="img-fluid" src="{{Course.course_picture_link}}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-3  col-md-3 meta-details">
+                        <ul class="tags">
+                            {{!-- <li><a href="#">Food,</a></li> --}}
+                        </ul>
+                        <div class="user-details row">
+                            <p class="user-name col-lg-12 col-md-12 col-6"><a href="#">{{Course.author_fname}}
+                                    {{Course.author_lname}}</a> <span class="lnr lnr-user"></span></p>
+                            <p class="date col-lg-12 col-md-12 col-6"><a href="#">10/05/2020</a> <span
+                                    class="lnr lnr-calendar-full"></span></p>
+                            <p class="view col-lg-12 col-md-12 col-6"><a href="#">{{Course.num_of_enrollment}}</a> <span
+                                    class="lnr lnr-eye"></span></p>
+                            {{!-- <p class="comments col-lg-12 col-md-12 col-6"><a href="#">{{Course.course_price}} $ </a> --}}
+                            <p class="text-primary" style="font-size: 30px; font-family:fantasy; ">
+                                Price:{{Course.course_price}}$ </p>
+
+                            <form action="/Courses/{{Course.subject_id}}/{{Course.course_id}}" method="POST">
+                                <input type="hidden" id="courseid" name="courseid" value="{{Course.course_id}}">
+                                <input type="hidden" id="subjectid" name="subjectid" value="{{Course.subject_id}}">
+                                <div id="divbt"></div>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9">
+                        <h3 class="mt-20 mb-20">{{Course.course_title}}</h3>
+                        <p class="excert">
+                            {{Course.course_description}}
+                        </p>
+                        <p>
+                            Boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot
+                            camp when you can get the MCSE study materials yourself at a fraction of the camp price.
+                            However, who has the willpower
+                            to actually sit through a self-imposed MCSE training. who has the willpower to actually sit
+                            through a self-imposed
+                        </p>
+                        <p>
+                            Boot camps have its supporters and its detractors. Some people do not understand why you
+                            should have to spend money on boot
+                            camp when you can get the MCSE study materials yourself at a fraction of the camp price.
+                            However, who has the willpower
+                            to actually sit through a self-imposed MCSE training. who has the willpower to actually sit
+                            through a self-imposed
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-lg-4 sidebar-widgets">
+                <div class="widget-wrap">
+                    <div class="single-sidebar-widget search-widget">
+                        {{!-- <form class="search-form" action="#">
+                            <input placeholder="Search Posts" name="search" type="text" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Search Posts'">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form> --}}
+                    </div>
+                    <div class="single-sidebar-widget user-info-widget">
+                        <img src="{{Course.author_picture_link}}" alt="" width="180" height="220">
+                        <a href="#">
+                            <h4>{{Course.author_fname}} {{Course.author_lname}}</h4>
+                        </a>
+                        <p>Master's degree</p>
+                        <p>Experiment: 5 years </p>
+                        <p>IELTS: 7.5 </p>
+                    </div>
+                    <div class="single-sidebar-widget ads-widget">
+                        <a href="#"><img class="img-fluid" src="img/blog/ads-banner.jpg" alt=""></a>
+                    </div>
+                    {{!-- <div class="single-sidebar-widget post-category-widget">
+                        <h4 class="category-title">Post Catgories</h4>
+                        <ul class="cat-list">
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Technology</p>
+                                    <p>37</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Lifestyle</p>
+                                    <p>24</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Fashion</p>
+                                    <p>59</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Art</p>
+                                    <p>29</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Food</p>
+                                    <p>15</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Architecture</p>
+                                    <p>09</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="d-flex justify-content-between">
+                                    <p>Adventure</p>
+                                    <p>44</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div> --}}
+                    <div class="single-sidebar-widget newsletter-widget">
+                        <!-- Begin Mailchimp Signup Form -->
+                        <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet"
+                            type="text/css">
+                        <style type="text/css">
+                            #mc_embed_signup {
+                                background: #fff;
+                                clear: left;
+                                font: 14px Helvetica, Arial, sans-serif;
+                            }
+
+                            /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                        </style>
+                        <div id="mc_embed_signup">
+                            <form
+                                action="https://herokuapp.us10.list-manage.com/subscribe/post?u=5baed1db326e48fde655983cf&amp;id=5b68563f72"
+                                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                                class="validate" target="_blank" novalidate>
+                                <div id="mc_embed_signup_scroll">
+                                    <label for="mce-EMAIL">Subscribes now to receive the latest news from us</label>
+                                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
+                                        placeholder="email address" required>
+                                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input
+                                            type="text" name="b_5baed1db326e48fde655983cf_5b68563f72" tabindex="-1"
+                                            value=""></div>
+                                    <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
+                                            id="mc-embedded-subscribe" class="button"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--End mc_embed_signup-->
+                        {{!-- <h4 class="newsletter-title">Newsletter</h4>
+                        <p>
+                            Here, I focus on a range of items and features that we use in life without giving them a
+                            second thought.
+                        </p>
+                        <div class="form-group d-flex flex-row">
+                            <div class="col-autos">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        placeholder="Enter email" onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter email'">
+                                </div>
+                            </div>
+                            <a href="#" class="bbtns">Subcribe</a>
+                        </div>
+                        <p class="text-bottom">
+                            You can unsubscribe at any time
+                        </p> --}}
+                    </div>
+                    {{!-- <div class="single-sidebar-widget tag-cloud-widget">
+                        <h4 class="tagcloud-title">Tag Clouds</h4>
+                        <ul>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Architecture</a></li>
+                            <li><a href="#">Fashion</a></li>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Art</a></li>
+                            <li><a href="#">Adventure</a></li>
+                            <li><a href="#">Food</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Adventure</a></li>
+                        </ul>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Lessons List</h3>
+            {{>Lesson}}
+            <div class="comments-area">
+                <h4>{{CountFB.dem}} Comments</h4>
+                {{#each Feedback}}
+                <div class="comment-list">
+                    <div class="single-comment justify-content-between d-flex">
+                        <div class="user justify-content-between d-flex">
+                            <div class="thumb">
+                                <img src="{{this.student_picture_link}}" alt="">
+                            </div>
+                            <div class="desc">
+                                <h5><a href="#">{{this.fname}} {{this.lname}}</a></h5>
+                                <p class="date">{{this.feedback_date}} </p>
+                                <p class="comment">
+                                    {{this.feedback_description}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="reply-btn">
+                            <a class="btn-reply text-uppercase">reply</a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{#if CheckUser}}
+            <div class="comment-form " style="width: 824.383px">
+                <h4>Leave a Comment</h4>
+                <form action="/Courses/{{Course.subject_id}}/{{Course.course_id}}/Message" method="POST">
+                    <style>
+                        .rating {
+                            margin-left: 10px;
+                        }
+
+                        .rating span {
+                            float: right;
+                            position: relative;
+                        }
+
+                        .rating span input {
+                            position: absolute;
+                            top: 0px;
+                            left: 0px;
+                            opacity: 0;
+                        }
+
+                        .rating span label {
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+                            text-align: center;
+                            color: #FFF;
+                            background: #ccc;
+                            font-size: 30px;
+                            margin-right: 2px;
+                            line-height: 30px;
+                            border-radius: 50%;
+                            -webkit-border-radius: 50%;
+                        }
+
+                        .rating span:hover~span label,
+                        .rating span:hover label,
+                        .rating span.checked label,
+                        .rating span.checked~span label {
+                            background: #F90;
+                            color: #FFF;
+                        }
+                    </style>
+                    <div class="form-group form-inline">
+                        Rating Star
+                        <div class="rating">
+                            <span><input type="radio" name="rating" id="str5" value="5"><label
+                                    for="str5"></label></span>
+                            <span><input type="radio" name="rating" id="str4" value="4"><label
+                                    for="str4"></label></span>
+                            <span><input type="radio" name="rating" id="str3" value="3"><label
+                                    for="str3"></label></span>
+                            <span><input type="radio" name="rating" id="str2" value="2"><label
+                                    for="str2"></label></span>
+                            <span><input type="radio" name="rating" id="str1" value="1"><label
+                                    for="str1"></label></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control mb-10" rows="5" id="message" name="message" placeholder="Messege"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+                            required=""></textarea>
+                    </div>
+                    <div id="rating" style="display: none;"></div>
+                    {{!-- <a href="#" class="primary-btn">Post Comment</a> --}}
+                    <button type="submit" class="primary-btn">Post Comment</button>
+                </form>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+<!-- End post-content Area -->
+
+<!-- Start Footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Brand Assets</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Brand Assets</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 single-footer-widget">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Experts</a></li>
+                    <li><a href="#">Agencies</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 single-footer-widget">
+                <h4>Newsletter</h4>
+                <p>You can trust us. we only send promo offers,</p>
+                <div class="form-wrap" id="mc_embed_signup">
+                    <form target="_blank"
+                        action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                        method="get" class="form-inline">
+                        <input class="form-control" name="EMAIL" placeholder="Your Email Address"
+                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+                            required="" type="email">
+                        <button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
+                        <div style="position: absolute; left: -5000px;">
+                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                        </div>
+
+                        <div class="info"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom row align-items-center">
+            <p class="footer-text m-0 col-lg-8 col-md-12">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
+                    target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+            <div class="col-lg-4 col-md-12 footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End Footer Area -->
+
+<!-- ####################### Start Scroll to Top Area ####################### -->
+<div id="back-top">
+    <a title="Go to Top" href="#"></a>
+</div>
+<!-- ####################### End Scroll to Top Area ####################### -->
+<div id="checkdem">{{Check.dem}}</div>
+
+<script>
+    const Check = document.getElementById("checkdem").innerHTML;
+    if (Check == '1') {
+        document.getElementById("divbt").innerHTML = `<button type="button" class="btn btn-success btn-remove-cart">Đã thêm vào giỏ</button>`;
+    } else if (Check == '0') {
+        document.getElementById("divbt").innerHTML = `<button type="submit" class="btn btn-outline-info" >Add to Cart Now</button>`;
+    };
+    const CU = document.getElementById('checkuser').innerHTML;
+    if (CU == 'false') {
+        document.getElementById("divbt").innerHTML = `<a href='/login' class="btn btn-outline-info" >Đăng nhập để mua</a>`;
+    }
+    $('btn-remove-cart').click(() => {
+        console.log()
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        // Check Radio-box
+        $(".rating input:radio").attr("checked", false);
+
+        $('.rating input').click(function () {
+            $(".rating span").removeClass('checked');
+            $(this).parent().addClass('checked');
+        });
+
+        $('input:radio').change(
+            function () {
+                var userRating = String(this.value);
+                //alert(userRating);
+                document.getElementById("rating").innerHTML = `<input type="hidden" id="ratingstar" name="ratingstar" value="${userRating}">`;
+            });
+    });
+</script>

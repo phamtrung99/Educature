@@ -1,0 +1,73 @@
+{{>AdminMenuBar}}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-chart-pie mr-1"></i>REVENUE MANAGE</div>
+            <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+            <div class="card-footer small text-muted">Updated today at 11:59 PM</div>
+        </div>
+    </div>
+    {{!-- <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>TOP 6 COURSES RATING STAR</div>
+            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+        </div>
+    </div> --}}
+</div>
+
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>Revenue From Student</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Contribute</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Contribute</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {{#each StuMoney}}
+                    <tr>
+                        <th>{{this.fname}}</th>
+                        <th>{{this.lname}}</th>
+                        <th>{{this.money}}$</th>
+
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+</main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; EDUCATURE 2020</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+{{!-- Thuộc tính tháng ẩn để lấy đổ vào data --}}
+{{#each RevPerMon}}
+<div style="display:none" id="remonth{{this.month}}">{{this.money}}</div>
+{{/each}}

@@ -1,0 +1,75 @@
+{{>AdminMenuBar}}
+<div class="row">
+    {{!-- <div class="col-xl-6">
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fas fa-chart-area mr-1"></i>SUBSCRIBERS PER MONTH </div>
+                            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                        </div>
+                    </div> --}}
+    <div class="col-xl-12">
+        <div>Top khóa học có lượng đánh giá sao trung bình cao nhất từ học viên.</div>
+        <div class="card mb-4">
+            <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>TOP 6 COURSES RATING STAR</div>
+            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+        </div>
+    </div>
+</div>
+<div class="card mb-4">
+    <div class="card-header"><i class="fas fa-table mr-1"></i>COURSES MANAGE</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Author</th>
+                        <th>Subscribers</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Author</th>
+                        <th>Subscribers</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    {{#each NumofSub}}
+                    <tr>
+                        <td>{{this.course_title}}</td>
+                        <td>{{this.author_fname}} {{this.author_lname}}</td>
+                        <td>{{this.SLER}}</td>
+
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+</main>
+<footer class="py-4 bg-light mt-auto">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; EDUCATURE 2020</div>
+            <div>
+                <a href="#">Privacy Policy</a>
+                &middot;
+                <a href="#">Terms &amp; Conditions</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+{{!-- Thuộc tính tháng ẩn để lấy đổ vào data --}}
+{{!-- Thuộc tính ẩn Top 6 khóa học rating cao nhất --}}
+{{#each TopRatCo}}
+<div style="display:none" id="topcourse{{this.STT}}">{{this.course_title}}</div>
+<div style="display:none" id="AveRate{{this.STT}}">{{this.AVE}}</div>
+{{/each}}
+{{!-- /Thuộc tính ẩn Top 6 khóa học rating cao nhất --}}
